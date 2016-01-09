@@ -1,11 +1,20 @@
 {% set icinga2 = salt['grains.filter_by']({
+    'Redhat': {
+        'classicui': {
+            'users': {}
+        },
+        'conf': {},
+        'nrpe': {},
+        'pkgs': [],
+        'install_apache': False,
+    {,
     'Debian': {
         'classicui': {
             'users': {}
         },
         'conf': {},
         'nrpe': {},
-        'pkgs': []
+        'pkgs': [],
     },
     'Ubuntu': {
         'classicui': {
@@ -13,7 +22,7 @@
         },
         'conf': {},
         'nrpe': {},
-        'pkgs': []
+        'pkgs': [],
     },
 
 }, merge=salt['pillar.get']('icinga2:lookup')) %}

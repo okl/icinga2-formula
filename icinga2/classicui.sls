@@ -30,8 +30,6 @@ icinga2-classicui:
     - source: salt://icinga2/files/classicui.cgi.cfg.tpl
     - template: jinja
 
-{% endif %}
-
 
 /etc/apache2/mods-enabled/version.load:
   file.symlink:
@@ -46,3 +44,7 @@ apache2:
       - file: /etc/apache2/mods-enabled/version.load
     - require:
       - pkg: apache2
+
+{% endif %}
+
+

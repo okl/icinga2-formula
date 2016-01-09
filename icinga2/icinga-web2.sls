@@ -1,3 +1,5 @@
+{% from 'icinga2/map.jinja' import icinga2 with context %}
+
 include:
   - .pgsql-ido
   - .legacy-feature-activation
@@ -44,7 +46,7 @@ phpini-conf:
         - user: vagrant
         - output_loglevel: DEBUG
     service.running:
-        - name: apache2
+        - name: {{ icinga2
         - restart: True
         - enable: True
         - watch:
