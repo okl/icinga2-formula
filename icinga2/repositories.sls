@@ -24,4 +24,13 @@ icinga_repo:
 #    - require:
 #      - pkg: debmon_repo_required_packages
 
+{% elif grains['os'] == 'Redhat' %}
+
+icinga_repo:
+  pkgrepo.managed:
+    - humanname: RHEL/CentOS $releasever-$basearch: EPEL
+    - mirrorlist: http://sac-corp-ops-adm-01.unix.newokl.com/mrepo/epel6-$basearch/RPMS.epel
+    - gpgkey: file:///etc/synto/pki/rpm-gpg//RPM-GPG-KEY-EPEL-6
+    - gpgcheck: 1
+    
 {% endif %}
