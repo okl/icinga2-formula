@@ -24,7 +24,7 @@ icinga_repo:
 #    - require:
 #      - pkg: debmon_repo_required_packages
 
-{% elif grains['os'] == 'Redhat' %}
+{% elif grains['os'] == 'RedHat' %}
 
 icinga_repo:
   pkgrepo.managed:
