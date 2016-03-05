@@ -1,18 +1,11 @@
 {% from "icinga2/map.jinja" import icinga2 with context %}
 
-include:
-  - .repositories
-
 nrpe_nagios_plugins:
   pkg.installed:
     - name: nagios-plugins
-    - require:
-      - pkgrepo: icinga_repo
 
 nagios-nrpe-server:
   pkg.installed:
-    - require:
-      - pkgrepo: icinga_repo
   service.running:
     - watch:
       - file: /etc/nagios/nrpe_local.cfg

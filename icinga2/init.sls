@@ -1,5 +1,3 @@
-include:
-  - .repositories
 
 {% from "icinga2/map.jinja" import icinga2 with context %}
 

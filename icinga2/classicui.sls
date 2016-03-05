@@ -4,7 +4,6 @@
 
 include:
     - icinga2
-    - .repositories
 
 icinga2-classicui:
     pkg.installed:
