@@ -6,8 +6,9 @@ nrpe_nagios_plugins:
 
 nagios-nrpe-server:
   pkg.installed:
-    - name: nrpe
+    - name: nagios-nrpe
   service.running:
+    - name: nrpe
     - watch:
       - file: /etc/nagios/nrpe_local.cfg
       - file: /etc/default/nagios-nrpe-server
