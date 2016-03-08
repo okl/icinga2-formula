@@ -17,12 +17,17 @@ nagios-nrpe-server:
       - file: /etc/nagios/nrpe_local.cfg
       - file: /etc/default/nagios-nrpe-server
 
+
 /etc/default/nagios-nrpe-server:
   file.managed:
     - contents: |
 {%- for key, value in icinga2.nrpe.defaults.items() %}
         {{ key }}={{ value }}
 {%- endfor %}
+
+/etc/nagios/nrpe.cfg:
+  file.managed:
+     - source: salt:///icinga2/files/nrpe.cfg.jinja
 
 /etc/nagios/nrpe_local.cfg:
   file.managed:
