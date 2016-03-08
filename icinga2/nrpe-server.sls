@@ -4,6 +4,10 @@ nrpe_nagios_plugins:
   pkg.installed:
     - name: nagios-plugins
 
+nrpe_nagios_plugins_all:
+  pkg.installed:
+    - name: nagios-plugins-all
+
 nagios-nrpe-server:
   pkg.installed:
     - name: nagios-nrpe
