@@ -14,6 +14,7 @@ nagios-nrpe-server:
   service.running:
     - name: nrpe
     - watch:
+      - file: /etc/nagios/nrpe.cfg
       - file: /etc/nagios/nrpe_local.cfg
       - file: /etc/default/nagios-nrpe-server
 
@@ -28,6 +29,8 @@ nagios-nrpe-server:
 /etc/nagios/nrpe.cfg:
   file.managed:
      - source: salt:///icinga2/files/nrpe.cfg.jinja
+     - template: jinja
+     - watch_in: nrpe
 
 /etc/nagios/nrpe_local.cfg:
   file.managed:
